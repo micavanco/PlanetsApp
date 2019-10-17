@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {IPlanet} from '../../interfaces';
 
 @Component({
   selector: 'app-planet-box',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./planet-box.component.scss']
 })
 export class PlanetBoxComponent implements OnInit {
+  @Input() planet: IPlanet;
 
   constructor() { }
 

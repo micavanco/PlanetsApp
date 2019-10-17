@@ -1,2 +1,2 @@
-<app-search-bar></app-search-bar>
-<app-result-container></app-result-container>
+<app-search-bar [(search)]="searchTerm" (change)="onSearchTermChanged()" [trigChange]="onSearchTermChanged.bind(this)" [planets]="planetsNames"></app-search-bar>
+<app-result-container [planets]="planets" ></app-result-container>

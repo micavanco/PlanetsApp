@@ -32,10 +32,23 @@ export class PlanetsService {
     };
   }
 
-  getPlanets() : Observable<IPlanet>
+  getPlanets()
   {
-    return this.httpClient.get(
-      environment.planetsUrl+'/planets'
-    ).pipe(map(data => this.transformToPlanet(data)));
+    return this.httpClient.get<Array<IPlanet>>(
+      environment.planetsUrl + '/planets'
+    );
+  }
+
+  getPlanet(search: string)
+  {
+    return this.httpClient.get<Array<IPlanet>>(
+      environment.planetsUrl + '/planets?search=' + search, {
+        // headers: {
+        //   'access-control-allow-origin' : '*',
+        //   'Content-type': 'application/json; charset=UTF-8',
+        //   'Access-Control-Allow-Headers': '*'
+        // }
+      }
+    );
   }
 }

@@ -10,6 +10,8 @@ import { MatAutocompleteModule, MatCardModule, MatFormFieldModule, MatGridListMo
 import { ResultContainerComponent } from './result-container/result-container.component';
 import { PlanetBoxComponent } from './result-container/planet-box/planet-box.component';
 import { PlanetsService } from './services/planets.service';
+import { HttpClientModule } from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { PlanetsService } from './services/planets.service';
     MatAutocompleteModule,
     MatInputModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [PlanetsService],
   bootstrap: [AppComponent]

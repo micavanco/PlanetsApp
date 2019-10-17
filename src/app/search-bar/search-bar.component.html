@@ -1,12 +1,12 @@
-<form class="search-form">
+<div class="search-form">
   <mat-form-field class="search-form__field">
-    <input matInput class="search-form__field__input" type="text" aria-label="" [matAutocomplete]="auto"/>
+    <input matInput class="search-form__field__input" type="text" aria-label="" [matAutocomplete]="auto" [(ngModel)]="searchTerm" (change)="onValueChanged()"/>
     <mat-placeholder class="search-form__field__placeholder">Search Planet</mat-placeholder>
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option>
-        <span>Tatooine</span>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)='onOptionChanged($event)'>
+      <mat-option *ngFor="let planet of planets" [value]="planet">
+        <span>{{planet}}</span>
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-</form>
+</div>
 

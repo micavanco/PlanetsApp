@@ -1,8 +1,6 @@
 
-<div class="result-container">
-  <app-planet-box></app-planet-box>
-  <app-planet-box></app-planet-box>
-  <app-planet-box></app-planet-box>
+<div class="result-container" >
+  <app-planet-box *ngFor="let planet of planets" [planet]="planet"></app-planet-box>
 </div>
 
 
