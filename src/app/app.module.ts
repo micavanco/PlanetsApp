@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { AppRoutingModule } from './app-routing.module';
+import {MatAutocompleteModule, MatFormFieldModule, MatInputModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,10 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatFormFieldModule,
+    MatAutocompleteModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

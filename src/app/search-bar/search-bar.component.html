@@ -1,1 +1,10 @@
-<p>search-bar works!</p>
+<form class="search-form">
+  <mat-form-field class="mat-form-field">
+    <input matInput placeholder="Type planet name..." aria-label="Type planet name..." [matAutocomplete]="auto"/>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option>
+        <span>Tatooine</span>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
