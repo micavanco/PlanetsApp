@@ -1,6 +1,7 @@
 <form class="search-form">
-  <mat-form-field class="mat-form-field">
-    <input matInput placeholder="Type planet name..." aria-label="Type planet name..." [matAutocomplete]="auto"/>
+  <mat-form-field class="search-form__field">
+    <input matInput class="search-form__field__input" type="text" aria-label="" [matAutocomplete]="auto"/>
+    <mat-placeholder class="search-form__field__placeholder">Search Planet</mat-placeholder>
     <mat-autocomplete #auto="matAutocomplete">
       <mat-option>
         <span>Tatooine</span>
@@ -8,3 +9,4 @@
     </mat-autocomplete>
   </mat-form-field>
 </form>
+
