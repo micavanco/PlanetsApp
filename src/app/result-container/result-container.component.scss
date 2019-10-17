@@ -1,0 +1,15 @@
+@import "../scss/abstracts/mixins";
+
+:host {
+  width: 100%;
+  max-width: 1200px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  .result-container {
+    padding: 40px 0;
+    width: 100%;
+    @include flexCenter(row);
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}

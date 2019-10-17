@@ -6,13 +6,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { AppRoutingModule } from './app-routing.module';
-import {MatAutocompleteModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import {MatAutocompleteModule, MatCardModule, MatFormFieldModule, MatGridListModule, MatInputModule} from '@angular/material';
+import { ResultContainerComponent } from './result-container/result-container.component';
+import { PlanetBoxComponent } from './result-container/planet-box/planet-box.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchBarComponent,
-    MainPageComponent
+    MainPageComponent,
+    ResultContainerComponent,
+    PlanetBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +24,9 @@ import {MatAutocompleteModule, MatFormFieldModule, MatInputModule} from '@angula
     AppRoutingModule,
     MatFormFieldModule,
     MatAutocompleteModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

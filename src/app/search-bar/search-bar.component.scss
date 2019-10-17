@@ -3,8 +3,8 @@
 
 :host {
   @include flexCenter(column);
-  margin: 120px 0;
-  max-width: 680px;
+  margin: 120px 0 20px 0;
+  max-width: 1200px;
   width: 100%;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 5px;
@@ -29,6 +29,7 @@
       &__placeholder {
         width: 100%;
         color: $input-placeholder-color;
+
       }
     }
 
@@ -52,5 +53,8 @@
   }
 }
 
+::ng-deep .mat-autocomplete-panel {
+  background: $mat-autocomplete-panel-background-color;
+}
 
 
