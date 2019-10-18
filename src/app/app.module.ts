@@ -6,7 +6,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { AppRoutingModule } from './app-routing.module';
-import { MatAutocompleteModule, MatCardModule, MatFormFieldModule, MatGridListModule, MatInputModule } from '@angular/material';
+import {
+  MatAutocompleteModule, MatButtonToggleModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatGridListModule,
+  MatInputModule, MatPaginatorModule,
+  MatProgressSpinnerModule
+} from '@angular/material';
 import { ResultContainerComponent } from './result-container/result-container.component';
 import { PlanetBoxComponent } from './result-container/planet-box/planet-box.component';
 import { PlanetsService } from './services/planets.service';
@@ -31,7 +38,10 @@ import {FormsModule} from '@angular/forms';
     MatCardModule,
     MatGridListModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule,
+    MatButtonToggleModule,
+    MatPaginatorModule
   ],
   providers: [PlanetsService],
   bootstrap: [AppComponent]

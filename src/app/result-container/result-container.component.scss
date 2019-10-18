@@ -5,7 +5,12 @@
   max-width: 1200px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 5px;
-  .result-container {
+  .result-container__nav {
+    @include flexCenter(row);
+    margin-top: 10px;
+  }
+
+  .result-container__boxes {
     padding: 40px 0;
     width: 100%;
     @include flexCenter(row);

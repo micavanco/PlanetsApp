@@ -11,6 +11,7 @@ export class MainPageComponent implements OnInit {
   searchTerm: string;
   planets: Array<IPlanet>;
   planetsNames: Array<string>;
+  isLoading: boolean;
 
   constructor(private planetsService: PlanetsService) {
     this.searchTerm = '';
@@ -22,11 +23,13 @@ export class MainPageComponent implements OnInit {
 
   onSearchTermChanged() {
     console.log(this.searchTerm);
+    this.planets = [];
+    this.isLoading = true;
     this.planetsService.getPlanet(this.searchTerm).subscribe(data => {
-      this.planets = data.results;
+      this.planets = data['results'];
       this.planetsNames = this.planets.map(e => e.name);
       },
-      error => error, () => {console.log(this.planets)});
+      error => error, () => {this.isLoading = false;});
   }
 
 }

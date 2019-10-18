@@ -1,5 +1,10 @@
-
-<div class="result-container" >
+<div class="result-container__nav">
+  <mat-paginator [length]="planets.length"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>
+</div>
+<div class="result-container__boxes">
   <app-planet-box *ngFor="let planet of planets" [planet]="planet"></app-planet-box>
 </div>
 

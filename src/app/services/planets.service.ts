@@ -41,7 +41,7 @@ export class PlanetsService {
 
   getPlanet(search: string)
   {
-    return this.httpClient.get<Array<IPlanet>>(
+    return this.httpClient.get(
       environment.planetsUrl + '/planets?search=' + search, {
         // headers: {
         //   'access-control-allow-origin' : '*',
