@@ -32,23 +32,17 @@ export class PlanetsService {
     };
   }
 
-  getPlanets()
-  {
-    return this.httpClient.get<Array<IPlanet>>(
-      environment.planetsUrl + '/planets'
-    );
-  }
-
   getPlanet(search: string, page: string)
   {
     return this.httpClient.get(
-      environment.planetsUrl + '/planets?search=' + search + '&page=' + page, {
-        // headers: {
-        //   'access-control-allow-origin' : '*',
-        //   'Content-type': 'application/json; charset=UTF-8',
-        //   'Access-Control-Allow-Headers': '*'
-        // }
-      }
+      environment.planetsUrl + '/planets?search=' + search + '&page=' + page, {}
+    );
+  }
+
+  getPlanetPicture()
+  {
+    return this.httpClient.get(
+      '../../assets/planets-pictures.json', {}
     );
   }
 }

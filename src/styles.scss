@@ -46,6 +46,10 @@ $app-theme: mat-light-theme($PlanetsApp-primary, $PlanetsApp-accent);
     background-color: mat-color($accent);
     color: mat-color($accent, default-contrast);
   }
+
+  .mat-card {
+    background: #b7b1b1;
+  }
 }
 
 // Include the mixin

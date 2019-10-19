@@ -6,7 +6,7 @@
   </mat-paginator>
 </div>
 <div class="result-container__boxes">
-  <app-planet-box *ngFor="let planet of planetsModified" [planet]="planet"></app-planet-box>
+  <app-planet-box *ngFor="let planet of planetsModified" [planet]="planet" [planetPictureURL]="planetsPictures[planet.name]"></app-planet-box>
 </div>
 
 

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IPlanet } from '../interfaces';
 
+
 @Component({
   selector: 'app-result-container',
   templateUrl: './result-container.component.html',
@@ -8,6 +9,7 @@ import { IPlanet } from '../interfaces';
 })
 export class ResultContainerComponent implements OnInit {
   @Input() planets: Array<IPlanet>;
+  @Input() planetsPictures: object;
   planetsModified: Array<IPlanet>;
   indexFrom: number;
   indexTo: number;

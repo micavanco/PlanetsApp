@@ -1,6 +1,10 @@
 .planet-card {
   width: 220px;
-  height: 320px;
+  height: 370px;
   cursor: pointer;
-  margin: 5px;
+  margin: 10px;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    box-shadow: 2px 4px 12px -1px rgba(232,100,100,1);
+  }
 }

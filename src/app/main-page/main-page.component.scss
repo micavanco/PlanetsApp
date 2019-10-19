@@ -2,5 +2,6 @@
 
 :host {
   @include flexCenter(column);
+  justify-content: start;
   min-height: 100vh;
 }

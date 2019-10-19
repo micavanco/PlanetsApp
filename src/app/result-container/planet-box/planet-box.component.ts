@@ -8,6 +8,7 @@ import {IPlanet} from '../../interfaces';
 })
 export class PlanetBoxComponent implements OnInit {
   @Input() planet: IPlanet;
+  @Input() planetPictureURL: string;
 
   constructor() { }
 
