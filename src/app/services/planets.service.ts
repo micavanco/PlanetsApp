@@ -39,10 +39,10 @@ export class PlanetsService {
     );
   }
 
-  getPlanet(search: string)
+  getPlanet(search: string, page: string)
   {
     return this.httpClient.get(
-      environment.planetsUrl + '/planets?search=' + search, {
+      environment.planetsUrl + '/planets?search=' + search + '&page=' + page, {
         // headers: {
         //   'access-control-allow-origin' : '*',
         //   'Content-type': 'application/json; charset=UTF-8',

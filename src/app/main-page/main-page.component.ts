@@ -12,24 +12,35 @@ export class MainPageComponent implements OnInit {
   planets: Array<IPlanet>;
   planetsNames: Array<string>;
   isLoading: boolean;
+  selectedPage: string;
 
   constructor(private planetsService: PlanetsService) {
     this.searchTerm = '';
     this.planets = [];
+    this.planetsNames = [];
+    this.selectedPage = '1';
   }
 
   ngOnInit() {
   }
 
   onSearchTermChanged() {
-    console.log(this.searchTerm);
     this.planets = [];
     this.isLoading = true;
-    this.planetsService.getPlanet(this.searchTerm).subscribe(data => {
-      this.planets = data['results'];
-      this.planetsNames = this.planets.map(e => e.name);
+    this.selectedPage = '1';
+    this.getPlanetsData();
+  }
+
+  getPlanetsData() {
+    this.planetsService.getPlanet(this.searchTerm, this.selectedPage).subscribe(data => {
+        this.planets.push(...data['results']);
+        this.planetsNames.push(...this.planets.map(e => e.name));
+        if (data['next']) {
+          this.selectedPage = data['next'][data['next'].length - 1];
+          this.getPlanetsData();
+        }
       },
-      error => error, () => {this.isLoading = false;});
+      error => error, () => { this.isLoading = false; });
   }
 
 }
