@@ -8,7 +8,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class SearchBarComponent implements OnInit {
   @Input() planets: Array<string>;
   @Input('search') searchTerm: string;
-  @Input('trigChange') trigChange: any;
+  @Input('changeURL')   changeURL: any;
   @Output() searchChange = new EventEmitter();
 
   constructor() {
@@ -24,7 +24,7 @@ export class SearchBarComponent implements OnInit {
   onOptionChanged(e) {
     this.searchTerm = e.option.value;
     this.searchChange.emit(this.searchTerm);
-    this.trigChange();
+    this.changeURL();
   }
 
 }

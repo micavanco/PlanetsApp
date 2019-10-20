@@ -1,3 +1,4 @@
+<i class="material-icons go-back" (click)="onGoingBack()"  [routerLink]="['/planet?search=', planet.name]">close</i>
 <mat-card class="planet-details">
   <mat-card-header>
     <img mat-card-avatar src="{{planetPicture}}" alt="Photo of planet" height="250" width="250"/>
@@ -21,5 +22,6 @@
   <div class="planet-details__box2">
     <img *ngFor="let picture of terrainPictures" src="{{picture}}" alt="Photo of terrain" height="125" width="150"/>
   </div>
+  <mat-progress-spinner *ngIf="isLoading" mode="indeterminate" [color]="'warn'" style="margin: auto"></mat-progress-spinner>
 </mat-card>
 

@@ -3,6 +3,13 @@
 :host {
   @include flexCenter(column);
   min-height: 100vh;
+
+  .go-back {
+    font-size: 54px;
+    color: #f5e9f2;
+    cursor: pointer;
+  }
+
   .planet-details {
     max-width: 700px;
     width: 90%;

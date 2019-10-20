@@ -19,31 +19,36 @@ export class PlanetDetailsComponent implements OnInit, OnDestroy {
   planetName: string;
   planetPicture: string;
   terrainPictures: Array<string>;
+  isLoading: boolean;
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
               private planetsService: PlanetsService) {
     this.planetPicture = '';
     this.terrainPictures = [];
+    this.isLoading = false;
     this.planet = new Planet('', '', '', '', '', '', '', '', '', [], [], '', '', '');
   }
 
   ngOnInit() {
     this.routerSubscribe = this.activatedRoute.paramMap.subscribe(params => {
       this.planetName = params.get('name');
+      this.isLoading = true;
       this.planetSubscribe = this.planetsService.getPlanet(this.planetName, '1').subscribe(data => {
         this.planet = data['results'][0];
       }, error => {}, () => {
         this.planetTerrainSubscribe = this.planetsService.getTerrainPicture().subscribe( data => {
 
           if(this.planet.terrain.split(',')[0] !== 'unknown') {
-            const terrain = data[0][this.planet.terrain.split(',')[0]];
-            const length = terrain['total_results'] !== 80 ? terrain['total_results'] : 80;
+            let terrainName = this.planet.terrain.split(',')[0];
+            if(terrainName[terrainName.length - 1] !== 's') terrainName += 's';
+            const terrain = data[0][terrainName];
+            const length = terrain['total_results'] < 80 ? terrain['total_results'] : 80;
             for(let i = 0; i < 4; i++)
               this.terrainPictures.push(terrain['photos'][Math.floor((Math.random() * length))]['src']['tiny']);
           }
 
-        });
+        }, error => {}, () => this.isLoading = false);
       });
       this.planetPictureSubscribe = this.planetsService.getPlanetPicture().subscribe(data => {
         this.planetPicture = data[0][this.planetName];
@@ -53,13 +58,16 @@ export class PlanetDetailsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.planetPictureSubscribe.unsubscribe();
-    this.planetTerrainSubscribe.unsubscribe();
+    if(this.planetTerrainSubscribe)
+      this.planetTerrainSubscribe.unsubscribe();
     this.planetSubscribe.unsubscribe();
     this.routerSubscribe.unsubscribe();
   }
 
   onGoingBack() {
-    this.router.navigate(['']);
+    let searchTerm = localStorage.getItem('search');
+    if(!searchTerm) searchTerm = ' ';
+    this.router.navigate(['/search/' + searchTerm]);
   }
 
 }

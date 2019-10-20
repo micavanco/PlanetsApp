@@ -5,7 +5,8 @@ import { PlanetDetailsComponent } from './planet-details/planet-details.componen
 
 const routes: Routes = [
   {path: '', component: MainPageComponent},
-  {path: 'planet/:name', component: PlanetDetailsComponent}
+  {path: 'planet/:name', component: PlanetDetailsComponent},
+  {path: 'search/:search', component: MainPageComponent}
 ];
 
 

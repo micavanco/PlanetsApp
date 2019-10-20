@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PlanetsService } from '../services/planets.service';
 import {IPlanet} from '../interfaces';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Subscription} from 'rxjs';
 
 
 
@@ -17,8 +19,9 @@ export class MainPageComponent implements OnInit {
   isLoading: boolean;
   selectedPage: string;
   planetFound: boolean;
+  routerSubscribe: Subscription;
 
-  constructor(private planetsService: PlanetsService) {
+  constructor(private planetsService: PlanetsService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.searchTerm = '';
     this.planets = [];
     this.planetsNames = [];
@@ -27,7 +30,18 @@ export class MainPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.routerSubscribe = this.activatedRoute.paramMap.subscribe(params => {
+      if (params.get('search')) {
+        this.searchTerm = params.get('search');
+        localStorage.setItem('search', this.searchTerm);
+        this.onSearchTermChanged();
+      }
+    });
     this.planetsService.getPlanetPicture().subscribe(data => this.planetsPictures = data[0]);
+  }
+
+  changeURL() {
+    this.router.navigate(['/search/' + this.searchTerm]);
   }
 
   onSearchTermChanged() {
@@ -35,6 +49,7 @@ export class MainPageComponent implements OnInit {
     this.isLoading = true;
     this.planetFound = true;
     this.selectedPage = '1';
+    localStorage.setItem('search', this.searchTerm);
     this.getPlanetsData();
   }
 
@@ -45,7 +60,7 @@ export class MainPageComponent implements OnInit {
         this.planetsNames.push(...this.planets.map(e => e.name));
 
         if (data['next']) {
-          this.selectedPage = data['next'][data['next'].length - 1];
+          this.selectedPage = data['next'].split('=')[1][0];
           this.getPlanetsData();
         }
       },

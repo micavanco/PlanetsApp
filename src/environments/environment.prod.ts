@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  planetsUrl: "https://swapi.co/api"
 };

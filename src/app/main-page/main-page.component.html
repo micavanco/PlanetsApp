@@ -1,4 +1,4 @@
-<app-search-bar [(search)]="searchTerm" (change)="onSearchTermChanged()" [trigChange]="onSearchTermChanged.bind(this)" [planets]="planetsNames"></app-search-bar>
+<app-search-bar [(search)]="searchTerm" (change)="onSearchTermChanged();changeURL();" [changeURL]="changeURL.bind(this)" [planets]="planetsNames"></app-search-bar>
 <app-result-container *ngIf="planets.length > 0" [planets]="planets" [planetsPictures]="planetsPictures"></app-result-container>
 <mat-progress-spinner *ngIf="isLoading" mode="indeterminate" [color]="'warn'"></mat-progress-spinner>
 <div class="box__alert" *ngIf="!planetFound">Planet not found...</div>
