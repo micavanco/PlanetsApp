@@ -19,6 +19,7 @@ export class PlanetDetailsComponent implements OnInit, OnDestroy {
   planetName: string;
   planetPicture: string;
   terrainPictures: Array<string>;
+  terrainURLs: Array<string>;
   isLoading: boolean;
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -26,6 +27,7 @@ export class PlanetDetailsComponent implements OnInit, OnDestroy {
               private planetsService: PlanetsService) {
     this.planetPicture = '';
     this.terrainPictures = [];
+    this.terrainURLs = [];
     this.isLoading = false;
     this.planet = new Planet('', '', '', '', '', '', '', '', '', [], [], '', '', '');
   }
@@ -44,8 +46,11 @@ export class PlanetDetailsComponent implements OnInit, OnDestroy {
             if(terrainName[terrainName.length - 1] !== 's') terrainName += 's';
             const terrain = data[0][terrainName];
             const length = terrain['total_results'] < 80 ? terrain['total_results'] : 80;
-            for(let i = 0; i < 4; i++)
-              this.terrainPictures.push(terrain['photos'][Math.floor((Math.random() * length))]['src']['tiny']);
+            for(let i = 0; i < 4; i++) {
+              const index = Math.floor((Math.random() * length));
+              this.terrainPictures.push(terrain['photos'][index]['src']['tiny']);
+              this.terrainURLs.push(terrain['photos'][index]['url']);
+            }
           }
 
         }, error => {}, () => this.isLoading = false);

@@ -20,7 +20,9 @@
   </div>
   <hr/>
   <div class="planet-details__box2">
-    <img *ngFor="let picture of terrainPictures" src="{{picture}}" alt="Photo of terrain" height="125" width="150"/>
+    <a *ngFor="let picture of terrainPictures; let i = index" href="{{terrainURLs[i]}}" target="_blank">
+      <img  src="{{picture}}" alt="Photo of terrain" height="125" width="150"/>
+    </a>
   </div>
   <mat-progress-spinner *ngIf="isLoading" mode="indeterminate" [color]="'warn'" style="margin: auto"></mat-progress-spinner>
 </mat-card>

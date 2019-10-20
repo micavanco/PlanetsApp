@@ -6,7 +6,7 @@
 
   .go-back {
     font-size: 54px;
-    color: #f5e9f2;
+    color: #b7b1b1;
     cursor: pointer;
   }
 
@@ -36,9 +36,8 @@
     &__box2 {
       @include flexCenter(row);
       flex-wrap: wrap;
-      justify-content: space-between;
       img {
-        margin: 5px 0;
+        margin: 5px;
       }
     }
 

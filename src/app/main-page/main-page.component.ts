@@ -41,6 +41,7 @@ export class MainPageComponent implements OnInit {
   }
 
   changeURL() {
+    if(!this.searchTerm) this.searchTerm = ' ';
     this.router.navigate(['/search/' + this.searchTerm]);
   }
 
