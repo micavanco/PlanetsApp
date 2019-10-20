@@ -1,7 +1,15 @@
 # PlanetsApp
 
 ## Description
-Recruiting task - Planets App to download from API and display Star Wars planets in a manner and pleasing to the user’s eye way. Application written in Angular with used Angular Material for styling.
+Recruiting task - Planets App to download from API and display Star Wars planets in a manner and pleasing to the user’s eye way. Application written in Angular with used Angular Material for styling. User searches planets by typing planet name or just part of a name inside input box and blur event triggers searching. Clicking on planet card redirects user to planet details page. By clicking on exit button, application redirects user to previous searching page. Alternatively after searching by not specific planet name, user has ability to pick planet from input results list.
+
+Application is available under the following link: https://micavanco.github.io/PlanetsApp/
+
+## Screenshots
+### Main page
+![alt text](https://raw.githubusercontent.com/micavanco/PlanetsApp/master/src/assets/main-page.png)
+### Planet details
+![alt text](https://raw.githubusercontent.com/micavanco/PlanetsApp/master/src/assets/planet-details.png)
 
 ## Development server
 
