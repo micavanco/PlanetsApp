@@ -19,6 +19,7 @@ import { PlanetBoxComponent } from './result-container/planet-box/planet-box.com
 import { PlanetsService } from './services/planets.service';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { PlanetDetailsComponent } from './planet-details/planet-details.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {FormsModule} from '@angular/forms';
     SearchBarComponent,
     MainPageComponent,
     ResultContainerComponent,
-    PlanetBoxComponent
+    PlanetBoxComponent,
+    PlanetDetailsComponent
   ],
   imports: [
     BrowserModule,

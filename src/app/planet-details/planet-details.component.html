@@ -1,0 +1,25 @@
+<mat-card class="planet-details">
+  <mat-card-header>
+    <img mat-card-avatar src="{{planetPicture}}" alt="Photo of planet" height="250" width="250"/>
+    <mat-card-title>{{planet.name}}</mat-card-title>
+    <mat-card-subtitle>climate: {{planet.climate}}</mat-card-subtitle>
+  </mat-card-header>
+  <div class="planet-details__box">
+    <mat-card-content class="planet-details__box__content">
+      <div>Rotation period: <span class="planet-details__box__content__parameter">{{planet.rotation_period}}</span></div>
+      <div>Orbital  period: <span class="planet-details__box__content__parameter">{{planet.orbital_period}}</span></div>
+      <div>Diameter:        <span class="planet-details__box__content__parameter">{{planet.diameter}}</span></div>
+      <div>Climate:         <span class="planet-details__box__content__parameter">{{planet.climate}}</span></div>
+      <div>Gravity:         <span class="planet-details__box__content__parameter">{{planet.gravity}}</span></div>
+      <div>Surface water:   <span class="planet-details__box__content__parameter">{{planet.surface_water}}</span></div>
+      <div>Population:      <span class="planet-details__box__content__parameter">{{planet.population}}</span></div>
+      <div>Terrain:         <span class="planet-details__box__content__parameter">{{planet.terrain}}</span></div>
+    </mat-card-content>
+    <img src="{{planetPicture}}" alt="Photo of planet" height="250" width="250"/>
+  </div>
+  <hr/>
+  <div class="planet-details__box2">
+    <img *ngFor="let picture of terrainPictures" src="{{picture}}" alt="Photo of terrain" height="125" width="150"/>
+  </div>
+</mat-card>
+

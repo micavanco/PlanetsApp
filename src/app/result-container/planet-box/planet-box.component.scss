@@ -4,7 +4,18 @@
   cursor: pointer;
   margin: 10px;
   transition: all 0.3s ease-in-out;
+  position: relative;
   &:hover {
     box-shadow: 2px 4px 12px -1px rgba(232,100,100,1);
   }
+  &__click {
+    top: 0;
+    left: 0;
+    background: rgba(245, 233, 242, 0);
+    width: 252px;
+    height: 402px;
+    position: absolute;
+  }
 }
+
+

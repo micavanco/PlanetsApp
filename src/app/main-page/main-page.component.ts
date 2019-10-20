@@ -16,12 +16,14 @@ export class MainPageComponent implements OnInit {
   planetsPictures: object;
   isLoading: boolean;
   selectedPage: string;
+  planetFound: boolean;
 
   constructor(private planetsService: PlanetsService) {
     this.searchTerm = '';
     this.planets = [];
     this.planetsNames = [];
     this.selectedPage = '1';
+    this.planetFound = true;
   }
 
   ngOnInit() {
@@ -31,6 +33,7 @@ export class MainPageComponent implements OnInit {
   onSearchTermChanged() {
     this.planets = [];
     this.isLoading = true;
+    this.planetFound = true;
     this.selectedPage = '1';
     this.getPlanetsData();
   }
@@ -38,7 +41,7 @@ export class MainPageComponent implements OnInit {
   getPlanetsData() {
     this.planetsService.getPlanet(this.searchTerm, this.selectedPage).subscribe(data => {
         this.planetsNames = [];
-        this.planets.push(...data['results']);
+        this.planets.push(...data['results'].filter(e => e.name !== 'unknown'));
         this.planetsNames.push(...this.planets.map(e => e.name));
 
         if (data['next']) {
@@ -46,7 +49,7 @@ export class MainPageComponent implements OnInit {
           this.getPlanetsData();
         }
       },
-      error => error, () => { this.isLoading = false;});
+      error => error, () => { this.isLoading = false; this.planetFound = this.planets.length !== 0; });
   }
 
 }

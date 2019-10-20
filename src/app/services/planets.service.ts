@@ -45,4 +45,11 @@ export class PlanetsService {
       '../../assets/planets-pictures.json', {}
     );
   }
+
+  getTerrainPicture()
+  {
+    return this.httpClient.get(
+      '../../assets/terrain-pictures.json', {}
+    );
+  }
 }

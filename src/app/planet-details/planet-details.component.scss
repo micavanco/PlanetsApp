@@ -1,0 +1,40 @@
+@import "../scss/abstracts/mixins";
+
+:host {
+  @include flexCenter(column);
+  min-height: 100vh;
+  .planet-details {
+    max-width: 700px;
+    width: 90%;
+    margin: 30px 0;
+
+    &__box {
+      @include flexCenter(row);
+      flex-wrap: wrap;
+      &__content {
+        text-align: justify-all;
+        max-width: 360px;
+        width: 100%;
+        font-size: 16px;
+        margin-right: 30px;
+
+        &__parameter {
+          float: right;
+          font-style: italic;
+          color: #1c1c1c;
+        }
+      }
+    }
+
+    &__box2 {
+      @include flexCenter(row);
+      flex-wrap: wrap;
+      justify-content: space-between;
+      img {
+        margin: 5px 0;
+      }
+    }
+
+  }
+}
+

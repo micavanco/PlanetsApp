@@ -1,6 +1,6 @@
 <mat-card class="planet-card">
   <mat-card-header>
-    <div mat-card-avatar class="planet-card__avatar"></div>
+    <img mat-card-avatar class="planet-card__avatar" src="{{planetPictureURL}}" alt="Photo of planet"/>
     <mat-card-title>{{planet.name}}</mat-card-title>
     <mat-card-subtitle>{{planet.climate}}</mat-card-subtitle>
   </mat-card-header>
@@ -10,4 +10,6 @@
       {{planet.terrain}}
     </p>
   </mat-card-content>
+  <a class="planet-card__click" [routerLink]="['/planet', planet.name]"></a>
 </mat-card>
+

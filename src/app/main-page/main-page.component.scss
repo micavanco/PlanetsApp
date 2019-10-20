@@ -2,6 +2,12 @@
 
 :host {
   @include flexCenter(column);
-  justify-content: start;
+  justify-content: flex-start;
   min-height: 100vh;
+}
+
+
+.box__alert {
+  color: #ff365f;
+  font-size: 24px;
 }
